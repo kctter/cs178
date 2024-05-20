@@ -1,10 +1,12 @@
-<project name="Count3sProject" default="Count3s">
+<project name="Count3sProject" default="runCount3s">
     <target name="Count3s">
         <javac srcdir="." includes="*.java"/>
     </target>
 
     <target name="jar" depends="Count3s">
         <jar destfile="Count3s.jar" basedir=".">
+            <exclude name="Count3s.jar"/>
+            <exclude name="build.xml"/>
             <manifest>
                 <attribute name="Main-Class" value="CountThrees"/>
             </manifest>
