@@ -1,0 +1,24 @@
+<project name="Count3sProject" default="Count3s">
+    <target name="Count3s">
+        <javac srcdir="." includes="*.java"/>
+    </target>
+
+    <target name="jar" depends="Count3s">
+        <jar destfile="Count3s.jar" basedir=".">
+            <manifest>
+                <attribute name="Main-Class" value="CountThrees"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="runCount3s" depends="jar">
+        <java jar="Count3s.jar" fork="true"/>
+    </target>
+
+    <target name="clean">
+        <delete>
+            <fileset dir="." includes="*.class"/>
+        </delete>
+        <delete file="Count3s.jar"/>
+    </target>
+</project>
